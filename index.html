@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP API Response</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div>
+        <h1>PHP API Response</h1>
+        <h2>HNG Stage 2</h2>
+        <div id="api-response"></div>
+        <div id="client-details"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('./api.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('api-response').innerText = data.message;
+                    document.getElementById('client-details').innerHTML = `
+                        <p>Client IP Address: ${data.client_ip}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching the API:', error);
+                });
+        });
+    </script>
+</body>
+</html>
+
+
+<!--                         <p>User Agent: ${data.user_agent}</p>    -->
