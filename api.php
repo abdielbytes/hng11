@@ -42,7 +42,6 @@ $response = [
     'client_ip' => $client_ip,
     'location' => $location,
     'greeting' => "Hello, $visitor_name! The temperature is {$temperature} degrees Celsius in {$city}.",
-    'weather' => $weather,
 ];
 
 echo json_encode($response);
